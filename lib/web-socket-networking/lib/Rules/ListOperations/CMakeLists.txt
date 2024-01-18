@@ -1,0 +1,6 @@
+add_subdirectory(Deal)
+add_subdirectory(Discard)
+add_subdirectory(Extend)
+add_subdirectory(Reverse)
+add_subdirectory(Shuffle)
+add_subdirectory(Sort)

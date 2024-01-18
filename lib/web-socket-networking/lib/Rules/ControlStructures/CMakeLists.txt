@@ -1,0 +1,7 @@
+add_subdirectory(Condition)
+add_subdirectory(Foreach)
+add_subdirectory(InParallel)
+add_subdirectory(Loop)
+add_subdirectory(ParallelFor)
+add_subdirectory(Switch)
+add_subdirectory(When)

@@ -1,0 +1,16 @@
+{
+    "configuration": {
+      "name": "test Game",
+      "player count": {"min": 50, "max": 100},
+      "audience": true,
+      "setup": { }
+    },
+    "constants": {},
+    "variables": {},
+    "per-player": {},
+    "per-audience": {},
+    "rules": {
+      "rule": "global-message",
+      "value": "Hello World!"
+    }
+  }
