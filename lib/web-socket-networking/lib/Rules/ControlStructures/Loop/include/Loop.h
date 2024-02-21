@@ -18,10 +18,3 @@ private:
   Condition condition;
   std::vector<Rule *> rules;
 };
-
-
-// std::unique_ptr<Rule> parseLoop(json data, std::shared_ptr<GameConfig> &configurations)
-// {
-//   Condition condition("string", *configurations);
-//   return std::make_unique<Loop>(condition);
-// }

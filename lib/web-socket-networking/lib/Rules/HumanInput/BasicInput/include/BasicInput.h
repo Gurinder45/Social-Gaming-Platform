@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Rule.h"
-// #include "users.h"
+#include "users.h"
 
 class BasicInput : public Rule
 {

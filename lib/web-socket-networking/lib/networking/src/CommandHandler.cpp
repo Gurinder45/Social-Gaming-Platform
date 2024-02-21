@@ -1,7 +1,6 @@
 #include "CommandHandler.h"
 #include "json.hpp"
 #include "Parser.h"
-#include "Game.h"
 #include <iostream>
 #include <fstream>  
 
@@ -15,17 +14,10 @@ CommandHandler::~CommandHandler()
 
 Command CommandHandler::stringToCommandEnum(std::string command)
 {
+    //is there a better way to go about doing this?
     if(command == "/addgame") return Command::ADDGAME;
     if(command == "/disconnect") return Command::DISCONNECT;
-    if(command == "/joingame") return Command::JOIN_GAME;
-    if(command == "/creategame") return Command::CREATE_GAME;
-    if(command == "/changeusername") return Command::CHANGE_USERNAME;
-    if(command == "/leavegame") return Command::LEAVE_GAME;
-    if(command == "/gameID") return Command::GAME_ID;
-    if(command == "/chat") return Command::CHAT;
-    if(command == "/gameinfo") return Command::GAMEINFO;
-    if(command == "/startgame") return Command::STARTGAME;
-    if(command == "/lastmsg") return Command::LAST_MSG;
+    if(command == "/connect") return Command::CONNECT;
 
     return Command::INVALID;
 }
@@ -38,15 +30,14 @@ void CommandHandler::executeCommand(std::string input)
     switch (stringToCommandEnum(caa.command))
     {
     case Command::ADDGAME:
-        // std::cout << input;
-        // saveGameFile(caa.allArguments);
+        saveGameFile(caa.allArguments);
         break;
     
     case Command::DISCONNECT:
         //disconnect();
         break;
 
-    case Command::JOIN_GAME:
+    case Command::CONNECT:
         //connect();
         break;
 

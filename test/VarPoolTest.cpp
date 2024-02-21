@@ -36,7 +36,7 @@ TEST_F(VarPoolTest, addIntegerVarPoolVariable)
     auto varValue = 3;
 
     varPool->addVar(varName, varValue);
-    auto varValueResult = varPool->getVarPoolValue<int>(varName);
+    auto varValueResult = varPool->getInt(varName);
     EXPECT_EQ(varValueResult, varValue);
 
     EXPECT_TRUE(varPool->exists(varName));
@@ -51,7 +51,7 @@ TEST_F(VarPoolTest, addDoubleVarPoolVariable)
     auto varValue = 4.1;
 
     varPool->addVar(varName, varValue);
-    auto varValueResult = varPool->getVarPoolValue<double>(varName);
+    auto varValueResult = varPool->getDouble(varName);
     EXPECT_EQ(varValueResult, varValue);
 
     EXPECT_TRUE(varPool->exists(varName));
@@ -66,7 +66,7 @@ TEST_F(VarPoolTest, addIntegerListVariable)
     varPool->addVar(varName, integerList);
     EXPECT_TRUE(varPool->exists(varName));
 
-    auto varType = varPool->getVarPoolValue<std::vector<int>>(varName);
+    auto varType = varPool->getIntList(varName);
     EXPECT_EQ(varType->get(), integerList);
 
 }
@@ -79,7 +79,7 @@ TEST_F(VarPoolTest, addDoubleListVariable)
     varPool->addVar(varName, doubleList);
     EXPECT_TRUE(varPool->exists(varName));
 
-    auto varType = varPool->getVarPoolValue<std::vector<double>>(varName);
+    auto varType = varPool->getDoubleList(varName);
     EXPECT_EQ(varType->get(), doubleList);
 
 }
@@ -92,7 +92,7 @@ TEST_F(VarPoolTest, addStringListVariable)
     varPool->addVar(varName, stringList);
     EXPECT_TRUE(varPool->exists(varName));
 
-    auto varType = varPool->getVarPoolValue<std::vector<std::string>>(varName);
+    auto varType = varPool->getStringList(varName);
     EXPECT_EQ(varType->get(), stringList);
 
 }
@@ -104,7 +104,7 @@ TEST_F(VarPoolTest, addVarPoolVariableMap)
     // std::map<int, int> intMapTest = {{0, 1}, {1, 2}, {2, 3}};
 
     varPool->addVar(varName, weaponValuesMap);
-    auto varmap = varPool->getVarPoolValue<std::map<std::string, int>>(varName);
+    auto varmap = varPool->getMap<std::string, int>(varName);
     for(auto it = varmap->get().begin(); it != varmap->get().end(); ++it)
     {
         EXPECT_EQ(it->second, weaponValuesMap[it->first]);
@@ -122,7 +122,7 @@ TEST_F(VarPoolTest, addVarPoolVariableString)
 
     varPool->addVar(varName, varValue);
 
-    auto varValueResult = varPool->getVarPoolValue<std::string>(varName);
+    auto varValueResult = varPool->getString(varName);
     // std::string test = std::to_string(*varValueResult);
     /** @TODO: Will need to double check implementation of getString */
     EXPECT_EQ(varValueResult->get(), varValue);

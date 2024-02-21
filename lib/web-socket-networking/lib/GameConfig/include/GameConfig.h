@@ -24,5 +24,4 @@ class GameConfig:public Setup{
         bool audience;
         PlayerCount PlayerCount;
         // TODO: make setup 
-        
 };

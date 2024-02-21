@@ -47,7 +47,7 @@ void Timer::execute()
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
       }
 
-      config.getVarPoolValue<bool>(flag_name).value().get()=true;
+      config.getBool(flag_name).value().get()=true;
       
     });
     t.detach();

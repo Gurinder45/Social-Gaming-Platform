@@ -16,22 +16,22 @@ protected:
     // }
 };
 
-// TEST_F (jsonToGameTest, initialize){
-//     EXPECT_EQ(config->getName(), "");
-//     EXPECT_EQ(config->audienceAllowed(),false);
-//     EXPECT_EQ(config->getMinPlayerCount(), 0);
-//     EXPECT_EQ(config->getMaxPlayerCount(), 0);
-// }
+TEST_F (jsonToGameTest, initialize){
+    EXPECT_EQ(config->getName(), "");
+    EXPECT_EQ(config->audienceAllowed(),false);
+    EXPECT_EQ(config->getMinPlayerCount(), 0);
+    EXPECT_EQ(config->getMaxPlayerCount(), 0);
+}
 
-// TEST_F (jsonToGameTest, readJson){
-//     EXPECT_EQ(game->getConfigFromFile("../test/Nofile.json"), "Failure");
+TEST_F (jsonToGameTest, readJson){
+    EXPECT_EQ(game->getConfigFromFile("../test/Nofile.json"), "Failure");
 
-// }
+}
 
-// TEST_F (jsonToGameTest, differentGame){
-//     EXPECT_EQ(game->getConfigFromFile("../test/testGame.json"), "Success");
-//     EXPECT_EQ(config->getName(), "test Game");
-//     EXPECT_EQ(config->audienceAllowed(),true);
-//     EXPECT_EQ(config->getMinPlayerCount(), 50);
-//     EXPECT_EQ(config->getMaxPlayerCount(), 100);
-// }
+TEST_F (jsonToGameTest, differentGame){
+    EXPECT_EQ(game->getConfigFromFile("../test/testGame.json"), "Success");
+    EXPECT_EQ(config->getName(), "test Game");
+    EXPECT_EQ(config->audienceAllowed(),true);
+    EXPECT_EQ(config->getMinPlayerCount(), 50);
+    EXPECT_EQ(config->getMaxPlayerCount(), 100);
+}

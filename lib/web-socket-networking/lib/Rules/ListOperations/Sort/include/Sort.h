@@ -20,7 +20,8 @@ private:
 #include <algorithm>
 template <class T, class Function>
 Sort<T, Function>::Sort(std::vector<T> &list, Function &&func)
-    : list(list),
+    : Rule({}),
+      list(list),
       cmp(func)
 {
 }

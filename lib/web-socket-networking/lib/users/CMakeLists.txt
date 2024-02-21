@@ -6,10 +6,7 @@ target_include_directories(Users
     $<INSTALL_INTERFACE:include>
 )
 
-target_link_libraries(Users
-  networking
-  ${CMAKE_THREAD_LIBS_INIT}
-)
+set_target_properties(Users PROPERTIES PUBLIC_HEADER include/users.h)
 INSTALL(TARGETS Users
         LIBRARY DESTINATION lib
         PUBLIC_HEADER DESTINATION include

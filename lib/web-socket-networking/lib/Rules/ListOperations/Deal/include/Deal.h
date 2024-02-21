@@ -22,7 +22,8 @@ private:
 
 template <class T>
 Deal<T>::Deal(std::vector<T> &target, std::vector<T> &source, int count)
-    : to(target),
+    : Rule({}),
+      to(target),
       from(source), count(count)
 {
 }

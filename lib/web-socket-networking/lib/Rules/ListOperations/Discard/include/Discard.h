@@ -21,7 +21,8 @@ private:
 
 template <class T>
 Discard<T>::Discard(std::vector<T> &from, int count)
-    : from(from), count(count)
+    : Rule({}),
+      from(from), count(count)
 {
 }
 

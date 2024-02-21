@@ -37,7 +37,7 @@ class Setup:public VarPool{
         for(auto& ch:m_choices){
 
             std::cout<<ch.second[0]<<std::endl;
-            for(size_t i=1;i<ch.second.size();i++){
+            for(int i=1;i<ch.second.size();i++){
                 std::cout<<i<<". "<<ch.second[i]<<std::endl;
             }
             int option;

@@ -9,8 +9,6 @@ public:
     Condition(std::string condition, GameConfig &config);
     bool evaluate();
 
-    
-
 private:
     std::string condition;
     GameConfig &config;

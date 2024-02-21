@@ -133,4 +133,3 @@ TEST_F(UsersTests, UserRemoveHost) {
   ASSERT_EQ( user->GetUserHostStatus(), false);
 }
 
-

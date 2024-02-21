@@ -46,7 +46,7 @@ TEST_F(GameConfigTest, addIntegerVarPoolVariable)
     auto varValue = 3;
 
     gameConfig->addVar(varName, varValue);
-    auto varValueResult = gameConfig->getVarPoolValue<int>(varName);
+    auto varValueResult = gameConfig->getInt(varName);
     EXPECT_EQ(varValueResult, 3);
 
     EXPECT_TRUE(gameConfig->exists(varName));
@@ -61,7 +61,7 @@ TEST_F(GameConfigTest, addDoubleVarPoolVariable)
     auto varValue = 3.5;
 
     gameConfig->addVar(varName, varValue);
-    auto varValueResult = gameConfig->getVarPoolValue<double>(varName);
+    auto varValueResult = gameConfig->getDouble(varName);
     EXPECT_EQ(varValueResult, varValue);
 
     EXPECT_TRUE(gameConfig->exists(varName));
@@ -76,7 +76,7 @@ TEST_F(GameConfigTest, addIntegerListVariable)
     gameConfig->addVar(varName, integerList);
     EXPECT_TRUE(gameConfig->exists(varName));
 
-    auto varType = gameConfig->getVarPoolValue<std::vector<int>>(varName);
+    auto varType = gameConfig->getIntList(varName);
     EXPECT_EQ(varType->get(), integerList);
 
 }
@@ -89,7 +89,7 @@ TEST_F(GameConfigTest, addDoubleListVariable)
     gameConfig->addVar(varName, doubleList);
     EXPECT_TRUE(gameConfig->exists(varName));
 
-    auto varType = gameConfig->getVarPoolValue<std::vector<double>>(varName);
+    auto varType = gameConfig->getDoubleList(varName);
     EXPECT_EQ(varType->get(), doubleList);
 
 }
@@ -102,7 +102,7 @@ TEST_F(GameConfigTest, addStringListVariable)
     gameConfig->addVar(varName, stringList);
     EXPECT_TRUE(gameConfig->exists(varName));
 
-    auto varType = gameConfig->getVarPoolValue<std::vector<std::string>>(varName);
+    auto varType = gameConfig->getStringList(varName);
     EXPECT_EQ(varType->get(), stringList);
 
 }

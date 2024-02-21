@@ -1,22 +1,18 @@
-#include "../../networking/include/Server.h"
-#include <boost/lambda/lambda.hpp>
 #include <iostream>
-#include <string>
+//#include <boost/lambda/lambda.hpp>
 
 class Users{
     public:
     Users();
     Users(std::string username);
-    Users(networking::Connection c);
     ~Users() {}
 
-    void changeUsername(std::string_view username);
+    void changeUsername(std::string username);
     void UserLevelUp();
     void UserSetHost();
     void UserSetSpectator();
-    networking::Connection getConnection();
     void UserSetPlayer();
-    void UserSetGameSessionName(std::string thisSessionName);
+    // void UserSetGameSession(GameSession thisSession);
 
     void UserRemoveHost();
     void UserRemoveSpectator();
@@ -36,23 +32,15 @@ class Users{
     bool GetUserPlayerStatus() {
         return isPlayer;
     }
-    std::string GetUserGameSessionName() {
-        return gameSessionName;
-    }
-    
-    // bool operator==(const Users& user)
-    // {
-    //     return(userName==user.userName);
+    // GameSession GetUserGameSession() {
+    //     return gameSession;
     // }
-
-   protected:
+    
+    protected:
     std::string userName;
     int userLevel;
     bool isHost;
     bool isSpectator;
     bool isPlayer;
-    std::string gameSessionName;
-    networking::Connection connection;
     // GameSession gameSession;
-
 };

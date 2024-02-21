@@ -3,12 +3,6 @@
 #include "Rule.h"
 
 #include <vector>
-#include <algorithm>
-
-#include <random>     
-#include <chrono>
-#include <random>
-#include <algorithm>
 
 template <class T>
 class Shuffle : public Rule
@@ -24,7 +18,7 @@ private:
 #include <algorithm>
 template <class T>
 Shuffle<T>::Shuffle(std::vector<T> &list)
-    : 
+    : Rule({}),
       list(list)
 {
 }
@@ -32,6 +26,5 @@ Shuffle<T>::Shuffle(std::vector<T> &list)
 template <class T>
 void Shuffle<T>::execute()
 {
-  unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-  std::shuffle(list.begin(), list.end(),std::default_random_engine(seed));
+  std::shuffle(list.begin(), list.end());
 }

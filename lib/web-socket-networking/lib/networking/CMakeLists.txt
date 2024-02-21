@@ -4,7 +4,6 @@ add_library(networking
   src/Client.cpp
   src/Parser.cpp
   src/CommandHandler.cpp
-  src/ServerHandler.cpp
 )
 
 find_package(Boost 1.72 COMPONENTS system REQUIRED)
@@ -20,7 +19,6 @@ target_include_directories(networking
 
 target_link_libraries(networking
   PRIVATE
-    Game
     ${Boost_LIBRARIES}
 )
 

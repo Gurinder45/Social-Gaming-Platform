@@ -8,7 +8,7 @@
 #include <optional>
 #include <vector>
 #include <functional>
-#include "json.hpp"
+#include "../networking/include/json.hpp"
 using json = nlohmann::json;
 
 class VarPool
@@ -42,12 +42,11 @@ public:
     std::optional<std::reference_wrapper<std::vector<VarPool>>> getList(const std::string &);
 
     //gets the default value if any
-    template <class T>
-    std::optional<std::reference_wrapper<T>> getVarPoolValue(const std::string &name);
+    template <typename T>
+    std::optional<std::reference_wrapper<T>> get();
 
     void removeVar(const std::string &);
-
-    void setVar(const std::string &name, const std::any value);
+    void setVar(const std::string &, std::any);
 
 private:
     std::unordered_map<std::string, std::any> pool;
@@ -61,17 +60,15 @@ private:
     std::optional<std::reference_wrapper<VarPool>> getVarPool(const std::string &);
 };
 
-template <class T>
-std::optional<std::reference_wrapper<T>> VarPool::getVarPoolValue(const std::string &name)
+template <typename T>
+std::optional<std::reference_wrapper<T>>  VarPool::get()
 {
-    if (!exists(name))
-    {
+    if (!exists("default"))
         return std::nullopt;
-    }
-
     try
     {
-        std::reference_wrapper<T> ref = std::any_cast<T &>(pool[name]);
+        std::reference_wrapper<T> ref = std::any_cast<T &>(pool["default"]);
+
         return std::optional<std::reference_wrapper<T>>{ref};
     }
     catch (const std::bad_any_cast &e)
@@ -79,8 +76,3 @@ std::optional<std::reference_wrapper<T>> VarPool::getVarPoolValue(const std::str
         return std::nullopt;
     }
 }
-
-// void VarPool::setVar(const std::string &name, const std::any value)
-// {
-//     pool[name] = value;
-// }

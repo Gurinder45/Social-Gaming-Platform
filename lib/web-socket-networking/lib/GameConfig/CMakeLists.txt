@@ -10,7 +10,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++17 -frtti")
 
 target_link_libraries(GameConfig
     varpool
-    GameSession
 )
 
 set_target_properties(GameConfig

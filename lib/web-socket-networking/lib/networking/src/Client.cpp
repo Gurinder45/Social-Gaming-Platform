@@ -163,7 +163,7 @@ bool Client::checkIfSendingFile(std::string message)
     boost::split(result, message,     
     boost::is_any_of(" "));
     if(result[0] == "/addgame"){ //checks if user typed a command
-       return false;
+       return true;
 
     }
 

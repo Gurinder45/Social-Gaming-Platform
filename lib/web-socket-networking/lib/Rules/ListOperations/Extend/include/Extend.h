@@ -18,7 +18,8 @@ private:
 
 template <class T>
 Extend<T>::Extend(std::vector<T> &target, std::vector<T> &list)
-    : to(target),
+    : Rule({}),
+      to(target),
       from(list)
 {
 }

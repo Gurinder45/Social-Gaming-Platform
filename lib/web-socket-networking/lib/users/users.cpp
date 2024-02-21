@@ -1,7 +1,7 @@
 #include "users.h"
-#include <boost/lambda/lambda.hpp>
-#include <iostream>
-
+//#include "../GameSession/include/GameSession.h"
+//#include <iostream>
+//#include <boost/lambda/lambda.hpp>
 
 Users::Users(){
     this->userName = "";
@@ -10,7 +10,6 @@ Users::Users(){
     this->isSpectator = false;
     this->isPlayer = false;
     std::cout << "Null User Succesfully Created" << std::endl;
-    std::cout << "/-------------------------------------------/" << std::endl;
 }
 
 Users::Users(std::string username){
@@ -20,22 +19,9 @@ Users::Users(std::string username){
     this->isSpectator = false;
     this->isPlayer = false;
     std::cout << "User " << username << " Succesfully Created" << std::endl;
-    std::cout << "/-------------------------------------------/" << std::endl;
 }
-Users::Users(networking::Connection c){
-    this->userName = "user" + std::to_string(c.id);
-    this->userLevel = 1;
-    this->isHost = false;
-    this->isSpectator = false;
-    this->isPlayer = false;
-    this->connection = c;
-    std::cout << "User " << userName << " Succesfully Created" << std::endl;
-    std::cout << "/-------------------------------------------/" << std::endl;
-}
-networking::Connection Users::getConnection(){
-    return this->connection;
-}
-void Users::changeUsername(std::string_view username){
+
+void Users::changeUsername(std::string username){
     this->userName = username;
     std::cout << "Username Succesfully Changed To: " << userName << std::endl;
 }
@@ -47,18 +33,16 @@ void Users::UserLevelUp(){
 void Users::UserSetHost(){
     this->isHost = true;
 }
-
 void Users::UserSetSpectator(){
     this->isSpectator = true;
 }
-
 void Users::UserSetPlayer(){
     this->isPlayer = true;
 }
 
-void Users::UserSetGameSessionName(std::string thisSessionName){
-    this->gameSessionName = thisSessionName;
-}
+// void UserSetGameSession(GameSession thisSession){
+//     this->gameSession = thisSession;
+// }
 
 void Users::UserRemoveHost(){
     this->isHost = false;

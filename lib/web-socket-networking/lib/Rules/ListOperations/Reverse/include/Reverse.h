@@ -18,7 +18,8 @@ private:
 #include <algorithm>
 template <class T>
 Reverse<T>::Reverse(std::vector<T> &list)
-    : list(list)
+    : Rule({}),
+      list(list)
 {
 }
 
